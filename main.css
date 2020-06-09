@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400;700&display=swap');
+
+body {
+    font-family: Gaegu, sans-serif;
+    padding: 1rem;
+    text-align: center;
+}
+
+.wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+h1 {
+    margin: 1rem;
+}
