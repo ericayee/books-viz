@@ -7,6 +7,8 @@ body {
 }
 
 .wrapper {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     max-width: 1000px;
     margin: 0 auto;
     display: flex;
@@ -16,5 +18,28 @@ body {
 }
 
 h1 {
+    font-size: 3em;
     margin: 1rem;
+}
+
+h3 {
+    font-size: 2em;
+}
+
+.chart {
+    margin: 1.5em;
+}
+
+p {
+    font-size: 2em;
+}
+
+/* #id svg g .roughtype text {
+    font-size: 2rem;
+} */
+
+@media screen and (max-width:450px){
+    p {
+      font-size: 3em;
+    }
 }

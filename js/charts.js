@@ -4,15 +4,18 @@ new roughViz.Bar({
     element: '#months',
     data: 'data/bymonth_2019.csv',
     title: 'By month finished',
-    titleFontSize: '.9',
+    titleFontSize: '3rem',
     labels: 'month',
     values: 'books',
+    roughness: 2,
+    width: 800,
+    height: 700,
+    legend: false,
+    axisFontSize: '2rem',
+    tooltipFontSize: '1.5rem',
+    margin: {top: 50, right: 20, bottom: 60, left: 20}
     // yLabel: 'books read',
     // xLabel: 'month',
-    roughness: 2,
-    width: 500,
-    legend: false
- 
 });
 
 // hbar chart of 2019 books by genre
@@ -23,14 +26,17 @@ new roughViz.BarH({
         values: [21, 14, 6, 4, 3, 3, 1, 1, 1, 1]
     },
     title: 'By genre',
-    titleFontSize: '.9',
+    titleFontSize: '3rem',
     // xLabel: 'books read',
     // yLabel: 'genre',
     roughness: 2,
-    width: 500,
+    width: 900,
+    height: 700,
+    axisFontSize: '2rem',
+    tooltipFontSize: '1.5rem',
     legend: false,
     color: 'purple',
-    margin: {top: 50, right: 20, bottom: 70, left: 150}
+    margin: {top: 50, right: 20, bottom: 70, left: 300}
   });
 
   // pie chart of 2019 books by fiction/nonfiction
@@ -41,11 +47,13 @@ new roughViz.BarH({
         values: [48, 7]
     },
     title: 'By type',
-    titleFontSize: '.9',
+    titleFontSize: '3rem',
     fillStyle: 'solid',
+    tooltipFontSize: '1.5rem',
     // fillWeight: 3,
     // roughness: 2,
-    width: 500,
+    width: 600,
+    height: 600
 });
 
 // pie chart of 2019 books by author gender
@@ -55,12 +63,14 @@ new roughViz.Pie({
         labels: ['female', 'male'], 
         values: [47, 8]
     },
-    title: 'By author gender, guessed by name/appearace/pronouns',
-    titleFontSize: '.9',
+    title: 'By author gender',
+    titleFontSize: '3rem',
+    tooltipFontSize: '1.5rem',
     fillStyle: 'solid',
     fillWeight: 2,
     // roughness: 2,
-    width: 500,
+    width: 600,
+    height: 600,
     colors: ['green', 'darkblue']
 });
 
@@ -72,11 +82,13 @@ new roughViz.Pie({
         values: [22, 33]
     },
     title: 'By target age demographic',
-    titleFontSize: '.9',
+    titleFontSize: '3rem',
     fillStyle: 'cross-hatch',
+    tooltipFontSize: '1.5rem',
     // fillWeight: 3,
     // roughness: 2,
-    width: 500,
+    width: 600,
+    height: 600,
     colors: ['red', 'pink']
 });
 
@@ -87,10 +99,12 @@ new roughViz.Donut({
         labels: ['yes', 'no', 'N/A'], 
         values: [26, 18, 11],
     },
-    title: 'Does the book have a POC major character?',
-    titleFontSize: '.9',
+    title: 'Is there a POC major character?',
+    titleFontSize: '2.5rem',
     fillStyle: 'cross-hatch',
+    tooltipFontSize: '1.5rem',
     // fillWeight: 3,
     // roughness: 2,
-    width: 500
+    width: 600,
+    height: 600
 });
