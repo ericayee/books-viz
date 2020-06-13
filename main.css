@@ -2,14 +2,16 @@
 
 body {
     font-family: Gaegu, sans-serif;
-    padding: 1rem;
+    padding: 1em;
     text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>👆</text></svg>") 16 0,auto; /*!emojicursor.app*/
 }
 
 .wrapper {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    max-width: 1000px;
+    margin-top: 1em;
+    margin-bottom: 1em;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -18,12 +20,18 @@ body {
 }
 
 h1 {
+    font-size: 50px;
+    margin: 1em;
+    padding: 0 0.5em;
+}
+
+h2 {
     font-size: 3em;
-    margin: 1rem;
+    margin-bottom: 0;
 }
 
 h3 {
-    font-size: 2em;
+    font-size: 2.5em;
 }
 
 .chart {
@@ -31,15 +39,47 @@ h3 {
 }
 
 p {
-    font-size: 2em;
+    font-size: 3em;
+    margin: 0;
 }
 
-/* #id svg g .roughtype text {
-    font-size: 2rem;
-} */
+#fiction {
+    color: #FF7F50;
+}
 
-@media screen and (max-width:450px){
-    p {
-      font-size: 3em;
-    }
+#nonfiction {
+    color: #87ceeb
+}
+
+#female {
+    color: #008000;
+}
+
+#male {
+    color: #87CEEB;
+}
+
+#younger {
+    color: #FF0000;
+}
+
+#adult {
+    color: #FFC0CB;
+}
+
+#poc-yes {
+    color: #ff7f50;
+}
+
+#poc-no {
+    color: #87CEEB;
+}
+
+#poc-na {
+    color: #66c2a5;
+}
+
+.credit {
+    margin-top: 5em;
+    font-size: 1.75em;
 }

@@ -9,17 +9,34 @@
 <body>
     <h1>A visual analysis of the 55 books I read in 2019</h1>
     <h3>By Erica Yee</h3>
+    <p>👆 charts are interactive!</p>
     <div class="wrapper">
-        <div id="months" class="chart"></div>
-        <div id="genres" class="chart"></div>
-        <div id="type" class="chart"></div>
         <div>
-            <div id="gender" class="chart"></div>
-            <p><i>guessed by name/appearace/pronouns</i></p>
+            <h2>How many per month?</h2>
+            <div id="months" class="chart"></div>
         </div>
-        <div id="age" class="chart"></div>
         <div>
+            <h2>Type: <span id="fiction">fiction</span> or <span id="nonfiction">non-fiction</span>?</h2>
+            <div id="type" class="chart"></div>
+        </div>
+        <div>
+            <h2>Which genre?</h2>
+            <div id="genres" class="chart"></div>
+        </div>
+        <div>
+            <h2>Author gender: <span id="female">female</span> or <span id="male">male</span>?</h2>
+            <div id="gender" class="chart"></div>
+            <p><i>guessed by name, appearance, and pronouns</i></p>
+        </div>
+        <div>
+            <h2>Target age demographic: <span id="younger">younger</span> or <span id="adult">adult</span>?</h2>
+            <div id="age" class="chart"></div>
+        </div>
+        <div>
+            <h2>Is there a POC major character?</h2>
+            <p><span id="poc-yes">yes</span>, <span id="poc-no">no</span>, or <span id="poc-na">N/A</span></p>
             <div id="poc" class="chart"></div>
+            <p><i>POC = person of color</i></p>
             <p><i>N/A if book is non-fiction or out-of-this-world fantasy</i></p>
         </div>
         </div>
