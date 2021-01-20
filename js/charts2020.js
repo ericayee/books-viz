@@ -13,6 +13,21 @@ const dashboard = {
                 case 'months':
                     dashboard.buildBarChart('2019');
                     break;
+                case 'genres':
+                    dashboard.buildHorzBarChart('2019');
+                    break;
+                case 'type':
+                    dashboard.buildPieChart('type', '2019');
+                    break;
+                case 'age':
+                    dashboard.buildPieChart('age', '2019');
+                    break;
+                case 'gender':
+                    dashboard.buildDonutChart('gender', '2019');
+                    break;
+                case 'poc':
+                    dashboard.buildDonutChart('poc', '2019');
+                    break;
                 default:
                     break;
             }
@@ -28,6 +43,21 @@ const dashboard = {
             switch (section) {
                 case 'months':
                     dashboard.buildBarChart('2020');
+                    break;
+                case 'genres':
+                    dashboard.buildHorzBarChart('2020');
+                    break;
+                case 'type':
+                    dashboard.buildPieChart('type', '2020');
+                    break;
+                case 'age':
+                    dashboard.buildPieChart('age', '2020');
+                    break;
+                case 'gender':
+                    dashboard.buildDonutChart('gender', '2020');
+                    break;
+                case 'poc':
+                    dashboard.buildDonutChart('poc', '2020');
                     break;
                 default:
                     break;
@@ -69,12 +99,22 @@ const dashboard = {
     },
     // build hbar chart for genres
     buildHorzBarChart: (year) => {
-        new roughViz.BarH({
-            element: '#genres',
-            data: {
+        let dataToUse;
+        if (year == '2020') {
+            dataToUse = {
                 labels: ['contemporary romance', 'YA', 'fantasy', 'memoir', 'historical romance', 'non-fiction', 'historical fiction', 'mystery', 'religious', 'sci-fi', 'superhero'],
                 values: [47, 14, 4, 2, 11, 6, 1, 3, 6, 3, 3]
-            },
+            }
+        } else {
+            dataToUse = {
+                labels: ['contemporary romance', 'YA', 'fantasy', 'memoir', 'historical romance', 'non-fiction', 'historical fiction', 'mystery', 'religious', 'sci-fi'],
+                values: [21, 14, 6, 4, 3, 3, 1, 1, 1, 1]
+            }
+        }
+
+        new roughViz.BarH({
+            element: '#genres',
+            data: dataToUse,
             roughness: 2,
             width: 700,
             height: 600,
@@ -87,96 +127,105 @@ const dashboard = {
     },
     // build pie chart for fiction or age
     buildPieChart: (type, year) => {
+        let dataToUse;
+        if (year == '2020') {
+            if (type == 'type') {
+                dataToUse = {
+                    labels: ['fiction', 'non-fiction'],
+                    values: [86, 14]
+                }
+            } else {
+                dataToUse = {
+                    labels: ['adult', 'younger'],
+                    values: [78, 22]
+                }
+            }
+            
+        } else {
+            if (type == 'type') {
+                dataToUse = {
+                    labels: ['fiction', 'non-fiction'], 
+                    values: [48, 7]
+                }
+            } else {
+                dataToUse = {
+                    labels: ['adult', 'younger'],
+                    values: [33, 22]
+                }
+            }
+        }
         // pie chart of 2019 books by fiction/nonfiction
         new roughViz.Pie({
-            element: '#type',
-            data: {
-                labels: ['fiction', 'non-fiction'],
-                values: [86, 14]
-            },
-            fillStyle: 'solid',
+            element: type == 'type' ? '#type' : '#age',
+            data: dataToUse,
+            fillStyle: type == 'type' ? 'solid' : 'cross-hatch',
             fillWeight: 1,
             roughness: 2,
             tooltipFontSize: '2rem',
+            colors: type == 'type' ? ['#FF7F50', '#87ceeb'] : ['red', 'pink'],
             width: 450,
             height: 450,
             legend: false,
             margin: { top: 0, right: 20, bottom: 20, left: 20 }
         });
 
-        // pie chart of 2019 books by target age
-        new roughViz.Pie({
-            element: '#age',
-            data: {
-                labels: ['younger', 'adult'],
-                values: [22, 78]
-            },
-            fillStyle: 'cross-hatch',
-            tooltipFontSize: '2rem',
-            fillWeight: 1,
-            roughness: 2,
-            width: 450,
-            height: 450,
-            colors: ['red', 'pink'],
-            legend: false,
-            margin: { top: 0, right: 20, bottom: 20, left: 20 }
-        }); F
     },
     // build donut chart for author gender or POC characters
     buildDonutChart: (type, year) => {
-        // pie chart of 2019 books by author gender
+        let dataToUse;
+        let colors;
+        if (year == '2020') {
+            if (type == 'gender') {
+                dataToUse = {
+                    labels: ['female', 'male', 'multiple'],
+                    values: [76, 22, 2]
+                };
+                colors = ['green', 'darkblue', '#717374'];
+            } else {
+                dataToUse = {
+                    labels: ['yes', 'no', 'N/A'],
+                    values: [35, 45, 20],
+                };
+                colors = ['#ff7f50', '#87CEEB', '#66c2a5'];
+            }
+        } else {
+            if (type == 'gender') {
+                dataToUse = {
+                    labels: ['female', 'male'],
+                    values: [47, 8]
+                };
+                colors = ['green', 'darkblue'];
+            } else {
+                dataToUse = {
+                    labels: ['yes', 'no', 'N/A'],
+                    values: [26, 18, 11],
+                };
+                colors = ['#ff7f50', '#87CEEB', '#66c2a5'];
+            }
+        }
+        // pie chart of 2019 books by author gender or poc characters
         new roughViz.Donut({
-            element: '#gender',
-            data: {
-                labels: ['female', 'male', 'multiple'],
-                values: [76, 22, 2]
-            },
+            element:  type == 'gender' ? '#gender' : '#poc',
+            data: dataToUse,
             tooltipFontSize: '2rem',
-            fillStyle: 'solid',
+            fillStyle: type == 'gender' ? 'solid' : 'cross-hatch',
             fillWeight: 1,
             roughness: 1,
             width: 450,
             height: 450,
-            colors: ['green', 'darkblue', '#717374'],
-            legend: false,
-            margin: { top: 0, right: 20, bottom: 20, left: 20 }
-        });
-
-        // donut chart of 2019 books by POC
-        new roughViz.Donut({
-            element: '#poc',
-            data: {
-                labels: ['yes', 'no', 'N/A'],
-                values: [35, 45, 20],
-            },
-            fillStyle: 'cross-hatch',
-            tooltipFontSize: '2rem',
-            fillWeight: 1,
-            roughness: 1,
-            width: 450,
-            height: 450,
+            colors: colors,
             legend: false,
             margin: { top: 0, right: 20, bottom: 20, left: 20 }
         });
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-// event listeners
-const eventListenersFunc = {
-
-    }
-
-    // initiate
 // create initial charts
-dashboard.addEventListeners('months');
+const sections = ['months', 'genres', 'type', 'age', 'gender', 'poc'];
+sections.forEach(el => dashboard.addEventListeners(el));
 dashboard.buildBarChart('2020');
+dashboard.buildHorzBarChart('2020');
+dashboard.buildPieChart('type', '2020');
+dashboard.buildPieChart('age', '2020');
+dashboard.buildDonutChart('gender', '2020');
+dashboard.buildDonutChart('poc', '2020');
