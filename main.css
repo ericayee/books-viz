@@ -59,6 +59,10 @@ p {
     color: #87CEEB;
 }
 
+#multiple {
+    color: #717374;
+}
+
 #younger {
     color: #FF0000;
 }
@@ -82,4 +86,39 @@ p {
 .credit {
     margin-top: 5em;
     font-size: 1.75em;
+}
+
+.btn-container {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.btn-left, .btn-right {
+    width: 75px;
+    background: darkslategray;
+    color: white;
+    padding: 0.3em 0.2em;
+    font-size: 1.75em;
+    opacity: 0.6;
+}
+
+.btn-left {
+    border: 1px solid darkslategray;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+}
+
+.btn-right {
+    border: 1px solid darkslategray;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+}
+
+.btn-left:hover, .btn-right:hover {
+    opacity: 0.8;
+}
+
+.btn-left.active, .btn-right.active {
+    opacity: 1;
 }
