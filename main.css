@@ -2,7 +2,7 @@
 
 body {
     font-family: Gaegu, sans-serif;
-    padding: 1em;
+    padding: 0.5em;
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
@@ -23,6 +23,7 @@ h1 {
     font-size: 50px;
     margin: 1em;
     padding: 0 0.5em;
+    margin-bottom: 0.5em;
 }
 
 h2 {
@@ -32,14 +33,21 @@ h2 {
 
 h3 {
     font-size: 2.5em;
+    margin: 0.5em;
+}
+
+h4 {
+    font-size: 2em;
+    font-style: italic;
+    margin: 0;
 }
 
 .chart {
-    margin: 1.5em;
+    margin: 0.5em;
 }
 
 p {
-    font-size: 3em;
+    font-size: 2em;
     margin: 0;
 }
 
@@ -57,6 +65,10 @@ p {
 
 #male {
     color: #87CEEB;
+}
+
+#multiple {
+    color: #717374;
 }
 
 #younger {
@@ -82,4 +94,39 @@ p {
 .credit {
     margin-top: 5em;
     font-size: 1.75em;
+}
+
+.btn-container {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.btn-left, .btn-right {
+    width: 75px;
+    background: darkslategray;
+    color: white;
+    padding: 0.3em 0.2em;
+    font-size: 1.75em;
+    opacity: 0.6;
+}
+
+.btn-left {
+    border: 1px solid darkslategray;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+}
+
+.btn-right {
+    border: 1px solid darkslategray;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+}
+
+.btn-left:hover, .btn-right:hover {
+    opacity: 0.8;
+}
+
+.btn-left.active, .btn-right.active {
+    opacity: 1;
 }
