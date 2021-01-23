@@ -89,6 +89,7 @@ const dashboard = {
             labels: 'month',
             values: 'books',
             roughness: 2,
+            highlight: 'darkblue',
             width: 700,
             height: 600,
             legend: false,
@@ -102,8 +103,8 @@ const dashboard = {
         let dataToUse;
         if (year == '2020') {
             dataToUse = {
-                labels: ['contemporary romance', 'YA', 'fantasy', 'memoir', 'historical romance', 'non-fiction', 'historical fiction', 'mystery', 'religious', 'sci-fi', 'superhero'],
-                values: [47, 14, 4, 2, 11, 6, 1, 3, 6, 3, 3]
+                labels: ['contemporary romance', 'YA', 'fantasy', 'memoir', 'historical romance', 'non-fiction', 'historical fiction', 'mystery', 'religious', 'sci-fi'],
+                values: [47, 14, 7, 2, 11, 6, 1, 3, 6, 3]
             }
         } else {
             dataToUse = {
@@ -122,6 +123,7 @@ const dashboard = {
             tooltipFontSize: '2.5rem',
             legend: false,
             color: 'purple',
+            highlight: '#4d004d',
             margin: { top: 20, right: 20, bottom: 70, left: 300 }
         });
     },
@@ -160,9 +162,9 @@ const dashboard = {
             data: dataToUse,
             fillStyle: type == 'type' ? 'solid' : 'cross-hatch',
             fillWeight: 1,
-            roughness: 2,
+            roughness: 1,
             tooltipFontSize: '2rem',
-            colors: type == 'type' ? ['#FF7F50', '#87ceeb'] : ['red', 'pink'],
+            colors: type == 'type' ? ['#FF7F50', '#45b3e0'] : ['pink', 'red'],
             width: 450,
             height: 450,
             legend: false,
@@ -214,6 +216,7 @@ const dashboard = {
             width: 450,
             height: 450,
             colors: colors,
+            highlight: '#8e8e8e',
             legend: false,
             margin: { top: 0, right: 20, bottom: 20, left: 20 }
         });
