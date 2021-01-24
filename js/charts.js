@@ -79,7 +79,7 @@ const dashboard = {
         } else {
             dataToUse = {
                 labels: ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sept', 'oct', 'nov', 'dec'],
-                values: [5, 4, 4, 9, 3, 1, 2, 1, 5, 4, 12]
+                values: [5, 5, 4, 4, 9, 3, 1, 2, 1, 5, 4, 12]
             }
         }
 
