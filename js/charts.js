@@ -1,9 +1,101 @@
-
-
-
-
 // dashboard
 const dashboard = {
+    data: {
+        total: {
+            overall: {
+                labels: ['2019', '2020', '2021'],
+                values: [55, 100, 102]
+            },
+            pubyear: {
+                labels: ['2019', '2020', '2021'],
+                values: [14, 34, 35]
+            }
+        },
+        months: {
+            '2019': {
+                labels: ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sept', 'oct', 'nov', 'dec'],
+                values: [5, 5, 4, 4, 9, 3, 1, 2, 1, 5, 4, 12]
+            },
+            '2020': {
+                labels: ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sept', 'oct', 'nov', 'dec'],
+                values: [6, 5, 10, 13, 11, 10, 7, 9, 8, 8, 6, 7]
+            },
+            '2021': {
+                labels: ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sept', 'oct', 'nov', 'dec'],
+                values: [9, 7, 9, 6, 7, 2, 7, 11, 7, 12, 13, 12]
+            }
+        },
+        genres: {
+            '2019': {
+                labels: ['contemporary romance', 'YA', 'fantasy', 'memoir', 'historical romance', 'non-fiction', 'historical fiction', 'mystery', 'religious', 'sci-fi'],
+                values: [21, 14, 6, 4, 3, 3, 1, 1, 1, 1]
+            },
+            '2020': {
+                labels: ['contemporary romance', 'YA', 'fantasy', 'memoir', 'historical romance', 'non-fiction', 'historical fiction', 'mystery', 'religious', 'sci-fi'],
+                values: [47, 14, 7, 2, 11, 6, 1, 3, 6, 3]
+            },
+            '2021': {
+                labels: ['contemporary romance', 'historical romance', 'fantasy', 'other fiction', 'sci-fi', 'non-fiction','religious', 'memoir', 'historical fiction', 'mystery', ],
+                values: [43, 25, 11, 5, 4, 4, 3, 3, 3, 1]
+            }
+        },
+        type: {
+            '2019': {
+                labels: ['fiction', 'non-fiction'], 
+                values: [48, 7]
+            },
+            '2020': {
+                labels: ['fiction', 'non-fiction'],
+                values: [86, 14]
+            },
+            '2021': {
+                labels: ['fiction', 'non-fiction'],
+                values: [92, 10]
+            }
+        },
+        age: {
+            '2019': {
+                labels: ['adult', 'younger'],
+                values: [33, 22]
+            },
+            '2020': {
+                labels: ['adult', 'younger'],
+                values: [78, 22]
+            },
+            '2021': {
+                labels: ['adult', 'younger'],
+                values: [88, 14]
+            }
+        },
+        gender: {
+            '2019': {
+                labels: ['female', 'male'],
+                values: [47, 8]
+            },
+            '2020': {
+                labels: ['female', 'male', 'various'],
+                values: [76, 22, 2]
+            },
+            '2021': {
+                labels: ['female', 'male', 'non-binary'],
+                values: [89, 11, 2]
+            }
+        },
+        poc: {
+            '2019': {
+                labels: ['yes', 'no', 'N/A'],
+                values: [26, 18, 11],
+            },
+            '2020': {
+                labels: ['yes', 'no', 'N/A'],
+                values: [35, 45, 20],
+            },
+            '2021': {
+                labels: ['yes', 'no', 'N/A'],
+                values: [32, 45, 25],
+            }
+        }
+    },
     // set event listeners for all the year toggles
     addEventListeners: (section) => {
         ['2019', '2020', '2021'].forEach(year => {
@@ -50,22 +142,9 @@ const dashboard = {
     },
     // build bar chart for total read
     buildTotal: (type) => {
-        let dataToUse;
-        if (type == 'overall') {
-            dataToUse = {
-                labels: ['2019', '2020', '2021'],
-                values: [55, 100, 102]
-            }
-        } else if (type == 'pubyear') {
-            dataToUse = {
-                labels: ['2019', '2020', '2021'],
-                values: [14, 34, 35]
-            }
-        }
-
         new roughViz.Bar({
             element: type == 'overall' ? '#total' : '#pubyear',
-            data: dataToUse,
+            data: dashboard.data.total[type],
             labels: 'year',
             values: 'books read',
             roughness: 2,
@@ -80,27 +159,9 @@ const dashboard = {
     },
     // build bar chart for months
     buildBarChart: (year) => {
-        let dataToUse;
-        if (year == '2020') {
-            dataToUse = {
-                labels: ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sept', 'oct', 'nov', 'dec'],
-                values: [6, 5, 10, 13, 11, 10, 7, 9, 8, 8, 6, 7]
-            }
-        } else if (year == '2019') {
-            dataToUse = {
-                labels: ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sept', 'oct', 'nov', 'dec'],
-                values: [5, 5, 4, 4, 9, 3, 1, 2, 1, 5, 4, 12]
-            }
-        } else {
-            dataToUse = {
-                labels: ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sept', 'oct', 'nov', 'dec'],
-                values: [9, 7, 9, 6, 7, 2, 7, 11, 7, 12, 13, 12]
-            }
-        }
-
         new roughViz.Bar({
             element: '#months',
-            data: dataToUse,
+            data: dashboard.data.months[year],
             labels: 'month',
             values: 'books',
             roughness: 2,
@@ -115,27 +176,9 @@ const dashboard = {
     },
     // build hbar chart for genres
     buildHorzBarChart: (year) => {
-        let dataToUse;
-        if (year == '2021') {    
-            dataToUse = {
-                labels: ['contemporary romance', 'historical romance', 'fantasy', 'other fiction', 'sci-fi', 'non-fiction','religious', 'memoir', 'historical fiction', 'mystery', ],
-                values: [43, 25, 11, 5, 4, 4, 3, 3, 3, 1]
-            };
-        } else if (year == '2020') {
-            dataToUse = {
-                labels: ['contemporary romance', 'YA', 'fantasy', 'memoir', 'historical romance', 'non-fiction', 'historical fiction', 'mystery', 'religious', 'sci-fi'],
-                values: [47, 14, 7, 2, 11, 6, 1, 3, 6, 3]
-            }
-        } else {
-            dataToUse = {
-                labels: ['contemporary romance', 'YA', 'fantasy', 'memoir', 'historical romance', 'non-fiction', 'historical fiction', 'mystery', 'religious', 'sci-fi'],
-                values: [21, 14, 6, 4, 3, 3, 1, 1, 1, 1]
-            }
-        }
-
         new roughViz.BarH({
             element: '#genres',
-            data: dataToUse,
+            data: dashboard.data.genres[year],
             roughness: 2,
             width: 700,
             height: 600,
@@ -149,49 +192,9 @@ const dashboard = {
     },
     // build pie chart for fiction or age
     buildPieChart: (type, year) => {
-        let dataToUse;
-        if (year == '2021') {
-            if (type == 'type') {
-                dataToUse = {
-                    labels: ['fiction', 'non-fiction'],
-                    values: [92, 10]
-                }
-            } else {
-                dataToUse = {
-                    labels: ['adult', 'younger'],
-                    values: [88, 14]
-                }
-            }
-        } else if (year == '2020') {
-            if (type == 'type') {
-                dataToUse = {
-                    labels: ['fiction', 'non-fiction'],
-                    values: [86, 14]
-                }
-            } else {
-                dataToUse = {
-                    labels: ['adult', 'younger'],
-                    values: [78, 22]
-                }
-            }
-            
-        } else {
-            if (type == 'type') {
-                dataToUse = {
-                    labels: ['fiction', 'non-fiction'], 
-                    values: [48, 7]
-                }
-            } else {
-                dataToUse = {
-                    labels: ['adult', 'younger'],
-                    values: [33, 22]
-                }
-            }
-        }
-        // pie chart of 2019 books by fiction/nonfiction
         new roughViz.Pie({
             element: type == 'type' ? '#type' : '#age',
-            data: dataToUse,
+            data: dashboard.data[type][year],
             fillStyle: type == 'type' ? 'solid' : 'cross-hatch',
             fillWeight: 1,
             roughness: 1,
@@ -206,57 +209,21 @@ const dashboard = {
     },
     // build donut chart for author gender or POC characters
     buildDonutChart: (type, year) => {
-        let dataToUse;
         let colors;
-        if (year == '2021') {
-            if (type == 'gender') {
-                dataToUse = {
-                    labels: ['female', 'male', 'non-binary'],
-                    values: [89, 11, 2]
-                };
-                colors = ['green', 'darkblue', '#717374'];
-            } else {
-                dataToUse = {
-                    labels: ['yes', 'no', 'N/A'],
-                    values: [32, 45, 25],
-                };
-                colors = ['#ff7f50', '#87CEEB', '#66c2a5'];
-            }
-            document.getElementById('third-gender').innerText = 'non-binary';
-        } else if (year == '2020') {
-            if (type == 'gender') {
-                dataToUse = {
-                    labels: ['female', 'male', 'multiple'],
-                    values: [76, 22, 2]
-                };
-                colors = ['green', 'darkblue', '#717374'];
-            } else {
-                dataToUse = {
-                    labels: ['yes', 'no', 'N/A'],
-                    values: [35, 45, 20],
-                };
-                colors = ['#ff7f50', '#87CEEB', '#66c2a5'];
-            }
-            document.getElementById('third-gender').innerText = 'multiple';
-        } else {
-            if (type == 'gender') {
-                dataToUse = {
-                    labels: ['female', 'male'],
-                    values: [47, 8]
-                };
-                colors = ['green', 'darkblue'];
-            } else {
-                dataToUse = {
-                    labels: ['yes', 'no', 'N/A'],
-                    values: [26, 18, 11],
-                };
-                colors = ['#ff7f50', '#87CEEB', '#66c2a5'];
-            }
+        if (type == 'gender') {
+            colors = ['green', 'darkblue', '#717374'];
+        } else if (type == 'poc') {
+            colors = ['#ff7f50', '#87CEEB', '#66c2a5'];
         }
-        // pie chart of 2019 books by author gender or poc characters
+        if (year == '2021') {
+            document.getElementById('third-gender').innerText = 'non-binary';
+        } else if (year == '2020' || year == '2019') {
+            document.getElementById('third-gender').innerText = 'various';
+        }
+
         new roughViz.Donut({
             element:  type == 'gender' ? '#gender' : '#poc',
-            data: dataToUse,
+            data: dashboard.data[type][year],
             tooltipFontSize: '2rem',
             fillStyle: type == 'gender' ? 'solid' : 'cross-hatch',
             fillWeight: 1,
@@ -268,30 +235,7 @@ const dashboard = {
             legend: false,
             margin: { top: 0, right: 20, bottom: 20, left: 20 }
         });
-    },
-        // read in pub year
-        buildPubYear: () => {
-            const dataToUse = {
-                labels: ['2019', '2020', '2021'],
-                values: [25, 34, 34]
-            }
-    
-            new roughViz.Bar({
-                element: '#pubyear',
-                data: dataToUse,
-                labels: 'year',
-                values: 'books read',
-                roughness: 2,
-                highlight: 'darkblue',
-                yLabel: '%',
-                width: 700,
-                height: 600,
-                legend: false,
-                axisFontSize: '2rem',
-                tooltipFontSize: '2.5rem',
-                margin: { top: 20, right: 20, bottom: 70, left: 80 }
-            });
-        }
+    }
 }
 
 // create initial charts
