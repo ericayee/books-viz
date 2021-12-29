@@ -81,7 +81,7 @@ p {
     color: #87CEEB;
 }
 
-#multiple {
+#third-gender {
     color: #717374;
 }
 
@@ -116,7 +116,7 @@ p {
     flex-direction: row;
 }
 
-.btn-left, .btn-right {
+.btn-left, .btn-right, .btn-middle {
     width: 100px; /*75px;*/
     background: darkslategray;
     color: white;
@@ -137,10 +137,14 @@ p {
     border-bottom-right-radius: 1em;
 }
 
-.btn-left:hover, .btn-right:hover {
+.btn-middle {
+    border: 1px solid darkslategray;
+}
+
+.btn-left:hover, .btn-right:hover, .btn-middle:hover {
     opacity: 0.8;
 }
 
-.btn-left.active, .btn-right.active {
+.btn-left.active, .btn-right.active, .btn-middle.active {
     opacity: 1;
 }

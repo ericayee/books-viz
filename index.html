@@ -7,16 +7,20 @@
 </head>
     
 <body>
-    <h1>A visual analysis of the 100 books I read in 2020*</h1>
-    <h4>*and the 55 in 2019</h4>
+    <h1>A visual analysis of my reading from 2019-2021</h1>
     <h3>By <a href="https://ericayee.com/">Erica Yee</a></h3>
     <p>👆 charts are interactive!</p>
     <div class="wrapper">
         <div>
+            <h2>Total books read</h2>
+            <div id="total" class="chart"></div>
+        </div>
+        <div>
             <h2>How many per month?</h2>
             <div class="btn-container">
                 <div id="btn-months-2019" class="btn-left">2019</div>
-                <div id="btn-months-2020" class="btn-right active">2020</div>
+                <div id="btn-months-2020" class="btn-middle">2020</div>
+                <div id="btn-months-2021" class="btn-right active">2021</div>
             </div>
             <div id="months" class="chart"></div>
         </div>
@@ -24,7 +28,8 @@
             <h2>Type: <span id="fiction">fiction</span> or <span id="nonfiction">non-fiction</span>?</h2>
             <div class="btn-container">
                 <div id="btn-type-2019" class="btn-left">2019</div>
-                <div id="btn-type-2020" class="btn-right active">2020</div>
+                <div id="btn-type-2020" class="btn-middle">2020</div>
+                <div id="btn-type-2021" class="btn-right active">2021</div>
             </div>
             <div id="type" class="chart"></div>
         </div>
@@ -32,24 +37,27 @@
             <h2>Which genre?</h2>
             <div class="btn-container">
                 <div id="btn-genres-2019" class="btn-left">2019</div>
-                <div id="btn-genres-2020" class="btn-right active">2020</div>
+                <div id="btn-genres-2020" class="btn-middle">2020</div>
+                <div id="btn-genres-2021" class="btn-right active">2021</div>
             </div>
             <div id="genres" class="chart"></div>
         </div>
         <div>
-            <h2>Author gender: <span id="female">female</span>, <span id="male">male</span>, or <span id="multiple">multiple</span>?</h2>
+            <h2>Author gender: <span id="female">female</span>, <span id="male">male</span>, or <span id="third-gender">non-binary</span>?</h2>
             <div class="btn-container">
                 <div id="btn-gender-2019" class="btn-left">2019</div>
-                <div id="btn-gender-2020" class="btn-right active">2020</div>
+                <div id="btn-gender-2020" class="btn-middle">2020</div>
+                <div id="btn-gender-2021" class="btn-right active">2021</div>
             </div>
             <div id="gender" class="chart"></div>
-            <p><i>guessed by name, appearance, and pronouns</i></p>
+            <p><i>researched/guessed by name, appearance, and pronouns</i></p>
         </div>
         <div>
             <h2>Target age demographic: <span id="younger">younger</span> or <span id="adult">adult</span>?</h2>
             <div class="btn-container">
                 <div id="btn-age-2019" class="btn-left">2019</div>
-                <div id="btn-age-2020" class="btn-right active">2020</div>
+                <div id="btn-age-2020" class="btn-middle">2020</div>
+                <div id="btn-age-2021" class="btn-right active">2021</div>
             </div>
             <div id="age" class="chart"></div>
         </div>
@@ -58,11 +66,16 @@
             <p><span id="poc-yes">yes</span>, <span id="poc-no">no</span>, or <span id="poc-na">N/A</span></p>
             <div class="btn-container">
                 <div id="btn-poc-2019" class="btn-left">2019</div>
-                <div id="btn-poc-2020" class="btn-right active">2020</div>
+                <div id="btn-poc-2020" class="btn-middle">2020</div>
+                <div id="btn-poc-2021" class="btn-right active">2021</div>
             </div>
             <div id="poc" class="chart"></div>
             <p><i>POC = person of color</i></p>
             <p><i>N/A if book is non-fiction or out-of-this-world fantasy</i></p>
+        </div>
+        <div>
+            <h2>How many books were published that year?</h2>
+            <div id="pubyear" class="chart"></div>
         </div>
         </div>
         <p class="credit">Charts made with <a target="_blank" href="https://github.com/jwilber/roughViz">roughViz</a>. <a href="https://github.com/ericayee/books-viz">Peek at the code</a> for this project.</p>
