@@ -95,7 +95,7 @@ const dashboard = {
                 labels: ['female', 'male', 'non-binary'],
                 values: [88, 11, 2]
             };
-            colors = ['green', 'darkblue', '#ff7f50'];
+            colors = ['green', 'darkblue', '#717374'];
         } else {
             dataToUse = {
                 labels: ['yes', 'no', 'N/A'],
