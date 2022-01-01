@@ -67,36 +67,36 @@ p {
     color: #87ceeb
 }
 
-#fremale {
+#female {
     color: #008000;
 }
 
 #male {
-    color: #87CEEB;
+    color: #00008b;
 }
 
 #third-gender {
-    color: #717374;
-}
-
-#younger {
-    color: #8700DB;
-}
-
-#adult {
-    color: #C700C7;
-}
-
-#poc-yes {
     color: #ff7f50;
 }
 
-#poc-no {
+#younger {
+    color: #C700C7;
+}
+
+#adult {
+    color: #8700DB;
+}
+
+#poc-yes {
     color: #87CEEB;
 }
 
-#poc-na {
+#poc-no {
     color: #66c2a5;
+}
+
+#poc-na {
+    color: #8e8e8e;
 }
 
 .icon-container {

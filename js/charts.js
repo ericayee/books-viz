@@ -55,15 +55,15 @@ const dashboard = {
         },
         age: {
             '2019': {
-                labels: ['adult', 'younger'],
+                labels: ['adult', 'young adult'],
                 values: [33, 22]
             },
             '2020': {
-                labels: ['adult', 'younger'],
+                labels: ['adult', 'young adult'],
                 values: [78, 22]
             },
             '2021': {
-                labels: ['adult', 'younger'],
+                labels: ['adult', 'young adult'],
                 values: [88, 14]
             }
         },
@@ -216,9 +216,9 @@ const dashboard = {
     buildDonutChart: (type, year) => {
         let colors;
         if (type == 'gender') {
-            colors = ['green', 'darkblue', '#717374'];
+            colors = ['green', 'darkblue', '#ff7f50'];
         } else if (type == 'poc') {
-            colors = ['#ff7f50', '#87CEEB', '#66c2a5'];
+            colors = ['#87CEEB', '#66c2a5', '#8e8e8e'];
         }
         if (year == '2021') {
             document.getElementById('third-gender').innerText = 'non-binary';
@@ -236,7 +236,7 @@ const dashboard = {
             width: 550,
             height: 550,
             colors: colors,
-            highlight: '#8e8e8e',
+            highlight: '#000',
             legend: false,
             margin: { top: 0, right: 20, bottom: 20, left: 20 }
         });
