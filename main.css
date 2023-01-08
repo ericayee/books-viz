@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Road+Rage&family=Single+Day&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap');
 
 body {
     font-family: Gaegu, sans-serif;
@@ -147,4 +148,8 @@ p {
 
 .btn-left.active, .btn-right.active, .btn-middle.active {
     opacity: 1;
+}
+
+li {
+    font-size: 2rem;
 }

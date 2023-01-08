@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>Books Viz for Instagram</title>
+    <script src="https://unpkg.com/rough-viz@1.0.5"></script>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: 'Source Sans Pro';
+        }
+    </style>
+</head>
+    
+<body>
+    <h1>A visual analysis of my 2022 reading</h1>
+    <div class="wrapper">
+        <div>
+            <h2>Total books read: 160</h2>
+            <div id="total" class="chart"></div>
+        </div>
+        <div>
+            <h2>How many per month in 2022?</h2>
+            <p>average 13.3 / month</p>
+            <div id="months" class="chart"></div>
+        </div>
+        <div>
+            <h2>Which genres?</h2>
+            <p>100 romance, 40 non-romance fiction, 160 non-fiction</p>
+            <div id="genres" class="chart"></div>
+        </div>
+        <div>
+            <h2>Author gender: <span id="female">female</span>, <span id="male">male</span>, <span
+                    id="third-gender">various</span>, or <span style="color:#8e8e8e;">unknown</span>?</h2>
+            <div id="gender" class="chart"></div>
+            <p><i>researched/guessed by pronouns</i></p>
+        </div>
+        <div>
+            <h2>Book format: <span style="color:#87CEEB;">ebook</span>, <span style="color:#66c2a5;">audiobook</span>, <span
+                style="color:violet;">e-graphic novel</span>, or <span style="color:#717374">print</span></span>?</h2>
+            <div id="format" class="chart"></div>
+        </div>
+        <div>
+            <h2>Other miscellaneous stats</h2>
+            <ul>
+                <li>🎉 read 65 books published in 2022 (40.6%)</li>
+                <li>read 11 novellas (under ~200 pages)</li>
+                <li>read 10 books translated to English</li>
+                <li>❌ DNF-ed ("did not finish") 6 books</li>
+                <li>read 4 Jane Austen adaptations</li>
+            </ul>
+        </div>
+    </div>
+    <script src="js/ig-2022.js"></script>
+</body>
+            
