@@ -78,10 +78,6 @@ const dashboard = {
             };
             colors = ['green', 'darkblue', '#ff7f50', '#8e8e8e'];
         } else {
-            dataToUse = {
-                labels: ['ebook', 'audiobook', 'e-graphic novel', 'print'],
-                values: [132, 16, 9, 3],
-            };
             colors = ['#87CEEB', '#66c2a5', 'violet', '#717374'];
         }
 

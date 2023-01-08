@@ -118,6 +118,12 @@ const dashboard = {
                 labels: ['yes', 'no', 'N/A'],
                 values: [36, 69, 55],
             }
+        },
+        format: {
+            '2022': {
+                labels: ['ebook', 'audiobook', 'e-graphic novel', 'print'],
+                values: [132, 16, 9, 3],
+            }
         }
     },
     // set event listeners for all the year toggles
@@ -246,27 +252,38 @@ const dashboard = {
     // build donut chart for author gender or POC characters
     buildDonutChart: (type, year) => {
         let colors;
+        let selector;
         if (type == 'gender') {
             colors = ['green', 'darkblue', '#ff7f50', '#8e8e8e'];
+
+            if (year == '2021') {
+                document.getElementById('third-gender').innerText = 'non-binary';
+                document.getElementById('unknown-gender').innerText = '';
+            } else if (year == '2022') {
+                document.getElementById('third-gender').innerText = 'various';
+                document.getElementById('unknown-gender').innerHTML = ', or <span style="color:#8e8e8e">unknown</span>'
+            } else if (year == '2020' || year == '2019') {
+                document.getElementById('third-gender').innerText = 'various';
+                document.getElementById('unknown-gender').innerText = '';
+            }
+
+            selector = '#gender';
+
         } else if (type == 'poc') {
             colors = ['#87CEEB', '#66c2a5', '#8e8e8e'];
-        }
-        if (year == '2021') {
-            document.getElementById('third-gender').innerText = 'non-binary';
-            document.getElementById('unknown-gender').innerText = '';
-        } else if (year == '2022') {
-            document.getElementById('third-gender').innerText = 'various';
-            document.getElementById('unknown-gender').innerHTML = ', or <span style="color:#8e8e8e">unknown</span>'
-        } else if (year == '2020' || year == '2019') {
-            document.getElementById('third-gender').innerText = 'various';
-            document.getElementById('unknown-gender').innerText = '';
+
+            selector = '#poc';
+        } else if (type == 'format') {
+            colors = ['#87CEEB', '#66c2a5', 'violet', '#717374'];
+
+            selector = '#format';
         }
 
         new roughViz.Donut({
-            element:  type == 'gender' ? '#gender' : '#poc',
+            element: selector,
             data: dashboard.data[type][year],
             tooltipFontSize: '2rem',
-            fillStyle: type == 'gender' ? 'solid' : 'cross-hatch',
+            fillStyle: type == 'poc' ? 'cross-hatch' : 'solid',
             fillWeight: 1,
             roughness: 1,
             width: 550,
@@ -289,4 +306,5 @@ dashboard.buildPieChart('type', '2022');
 dashboard.buildPieChart('age', '2022');
 dashboard.buildDonutChart('gender', '2022');
 dashboard.buildDonutChart('poc', '2022');
+dashboard.buildDonutChart('format', '2022');
 dashboard.buildTotal('pubyear');
