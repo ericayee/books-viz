@@ -34,16 +34,23 @@ a:hover {
     justify-content: center;
 }
 
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 h1 {
     font-size: 5rem;
     margin: 0.5rem;
-    /* padding: 0 0.5rem; */
+    line-height: 100%;
     margin-bottom: 0.5rem;
 }
 
 h2 {
     font-size: 4rem;
     margin-bottom: 0;
+    line-height: 100%;
 }
 
 h3 {
@@ -76,8 +83,16 @@ p {
     color: #00008b;
 }
 
-#third-gender {
+#non-binary {
     color: #ff7f50;
+}
+
+#multiple {
+    color: purple;
+}  
+
+#unknown {
+   color:#8e8e8e;
 }
 
 #younger {

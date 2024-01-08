@@ -6,7 +6,7 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://unpkg.com/rough-viz@1.0.5"></script>
+    <script src="https://unpkg.com/rough-viz@2.0.5"></script>
     <link rel="stylesheet" href="main.css">
 </head>
 
@@ -14,89 +14,98 @@
     <div class="icon-container">
         <img src="book.svg" />
     </div>
-    <h1>A visual analysis of my reading from 2019-2022</h1>
+    <h1>A visual analysis of my reading from 2019-2023</h1>
     <h3>By <a href="https://ericayee.com/">Erica Yee</a></h3>
     <p>👆 charts are interactive!</p>
     <div class="wrapper">
-        <div>
+        <section>
             <h2>Total books read</h2>
-            <div id="total" class="chart"></div>
-        </div>
-        <div>
+            <div id="total" class="chart" style="width: 800px; height: 600px;"></div>
+        </section>
+        <section>
             <h2>How many per month?</h2>
             <div class="btn-container">
                 <div id="btn-months-2019" class="btn-left">2019</div>
                 <div id="btn-months-2020" class="btn-middle">2020</div>
                 <div id="btn-months-2021" class="btn-middle">2021</div>
-                <div id="btn-months-2022" class="btn-right active">2022</div>
+                <div id="btn-months-2022" class="btn-middle">2022</div>
+                <div id="btn-months-2023" class="btn-right active">2023</div>
             </div>
-            <div id="months" class="chart"></div>
-        </div>
-        <div>
+            <div id="months" class="chart" style="width: 800px; height: 600px;"></div>
+        </section>
+        <section>
             <h2>Type: <span id="fiction">fiction</span> or <span id="nonfiction">non-fiction</span>?</h2>
             <div class="btn-container">
                 <div id="btn-type-2019" class="btn-left">2019</div>
                 <div id="btn-type-2020" class="btn-middle">2020</div>
                 <div id="btn-type-2021" class="btn-middle">2021</div>
-                <div id="btn-type-2022" class="btn-right active">2022</div>
+                <div id="btn-type-2022" class="btn-middle">2022</div>
+                <div id="btn-type-2023" class="btn-right active">2023</div>
             </div>
-            <div id="type" class="chart"></div>
-        </div>
-        <div>
+            <div id="type" class="chart" style="width: 550px; height: 550px;"></div>
+        </section>
+        <section>
             <h2>Which genre?</h2>
             <div class="btn-container">
                 <div id="btn-genres-2019" class="btn-left">2019</div>
                 <div id="btn-genres-2020" class="btn-middle">2020</div>
                 <div id="btn-genres-2021" class="btn-middle">2021</div>
-                <div id="btn-genres-2022" class="btn-right active">2022</div>
+                <div id="btn-genres-2022" class="btn-middle">2022</div>
+                <div id="btn-genres-2023" class="btn-right active">2023</div>
             </div>
-            <div id="genres" class="chart"></div>
-        </div>
-        <div>
-            <h2>Author gender: <span id="female">female</span>, <span id="male">male</span>, or <span
-                    id="third-gender">non-binary</span><span id="unknown-gender"></span>?</h2>
+            <div id="genres" class="chart" style="width: 800px; height: 600px;"></div>
+        </section>
+        <section>
+            <h2>Author gender: <span id="female">female</span>, <span id="male">male</span>, <span
+                    id="non-binary">non-binary</span>, <span id="multiple">multiple</span>, or <span id="unknown">unknown</span>?</h2>
             <div class="btn-container">
                 <div id="btn-gender-2019" class="btn-left">2019</div>
                 <div id="btn-gender-2020" class="btn-middle">2020</div>
                 <div id="btn-gender-2021" class="btn-middle">2021</div>
-                <div id="btn-gender-2022" class="btn-right active">2022</div>
+                <div id="btn-gender-2022" class="btn-middle">2022</div>
+                <div id="btn-gender-2023" class="btn-right active">2023</div>
             </div>
-            <div id="gender" class="chart"></div>
+            <div id="gender" class="chart" style="width: 550px; height: 550px;"></div>
             <p><i>researched/guessed by pronouns</i></p>
-        </div>
-        <div>
+        </section>
+        <section>
             <h2>Target age demographic: <span id="younger">young adult</span> or <span id="adult">adult</span>?</h2>
             <div class="btn-container">
                 <div id="btn-age-2019" class="btn-left">2019</div>
                 <div id="btn-age-2020" class="btn-middle">2020</div>
                 <div id="btn-age-2021" class="btn-middle">2021</div>
-                <div id="btn-age-2022" class="btn-right active">2022</div>
+                <div id="btn-age-2022" class="btn-middle">2022</div>
+                <div id="btn-age-2023" class="btn-right active">2023</div>
             </div>
-            <div id="age" class="chart"></div>
-        </div>
-        <div>
+            <div id="age" class="chart" style="width: 550px; height: 550px;"></div>
+        </section>
+        <section>
             <h2>Is there a POC major character?</h2>
             <p><span id="poc-yes">yes</span>, <span id="poc-no">no</span>, or <span id="poc-na">N/A</span></p>
             <div class="btn-container">
                 <div id="btn-poc-2019" class="btn-left">2019</div>
                 <div id="btn-poc-2020" class="btn-middle">2020</div>
                 <div id="btn-poc-2021" class="btn-middle">2021</div>
-                <div id="btn-poc-2022" class="btn-right active">2022</div>
+                <div id="btn-poc-2022" class="btn-middle">2022</div>
+                <div id="btn-poc-2023" class="btn-right active">2023</div>
             </div>
-            <div id="poc" class="chart"></div>
+            <div id="poc" class="chart" style="width: 550px; height: 550px;"></div>
             <p><i>POC = person of color</i></p>
             <p><i>N/A if book is non-fiction or out-of-this-world fantasy</i></p>
-        </div>
-        <div>
-            <h2>Book format: <span style="color:#87CEEB;">ebook</span>, <span style="color:#66c2a5;">audiobook</span>, <span
-                style="color:violet;">e-graphic novel</span>, or <span style="color:#717374">print</span></span>?</h2>
-            <p>(new stat tracked for 2022!)</p>
-            <div id="format" class="chart"></div>
-        </div>
-        <div>
+        </section>
+        <section>
+            <h2>Book format: <span style="color:#87CEEB;">ebook</span>, <span style="color:#66c2a5;">audiobook</span>, or <span
+                style="color:violet;">print</span>?</h2>
+                <div class="btn-container">
+                    <div id="btn-format-2022" class="btn-left">2022</div>
+                    <div id="btn-format-2023" class="btn-right active">2023</div>
+                </div>
+            <div id="format" class="chart" style="width: 550px; height: 550px;"></div>
+        </section>
+        <section>
             <h2>Of the books I read, how many were published that year?</h2>
-            <div id="pubyear" class="chart"></div>
-        </div>
+            <div id="pubyear" class="chart" style="width: 800px; height: 600px;"></div>
+        </section>
     </div>
     <div class="icon-container">
         <img src="book.svg" />
@@ -105,7 +114,7 @@
         <p>Charts made with <a href="https://github.com/jwilber/roughViz">roughViz</a>.</p>
         <p>Peek at the <a
             href="https://github.com/ericayee/books-viz">code</a>.</p>
-            <p>2023 Erica Yee</p>
+            <p>2024 Erica Yee</p>
     </div>
 
     <script src="js/charts.js"></script>

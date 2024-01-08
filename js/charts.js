@@ -3,12 +3,12 @@ const dashboard = {
     data: {
         total: {
             overall: {
-                labels: ['2019', '2020', '2021', '2022'],
-                values: [55, 100, 102, 160]
+                labels: ['2019', '2020', '2021', '2022', '2023'],
+                values: [55, 100, 102, 160, 134]
             },
             pubyear: {
-                labels: ['2019', '2020', '2021', '2022'],
-                values: [14, 34, 35, 65]
+                labels: ['2019', '2020', '2021', '2022', '2023'],
+                values: [14, 34, 35, 65, 57]
             }
         },
         months: {
@@ -27,6 +27,10 @@ const dashboard = {
             '2022': {
                 labels: ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sept', 'oct', 'nov', 'dec'],
                 values: [13, 18, 10, 19, 13, 13, 13, 12, 13, 13, 12, 11]
+            },
+            '2023': {
+                labels: ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sept', 'oct', 'nov', 'dec'],
+                values: [8, 8, 11, 11, 8, 13, 13, 17, 11, 13, 9, 11]
             }
         },
         genres: {
@@ -39,12 +43,16 @@ const dashboard = {
                 values: [47, 14, 7, 2, 11, 6, 1, 3, 6, 3]
             },
             '2021': {
-                labels: ['contemporary romance', 'historical romance', 'fantasy', 'other fiction', 'sci-fi', 'non-fiction','religious', 'memoir', 'historical fiction', 'mystery' ],
+                labels: ['contemporary romance', 'historical romance', 'fantasy', 'other fiction', 'sci-fi', 'non-fiction','religious', 'memoir', 'historical fiction', 'mystery'],
                 values: [43, 25, 11, 5, 4, 4, 3, 3, 3, 1]
             },
             '2022': {
-                labels: ['contemporary romance', 'historical romance', 'fantasy romance', 'other fiction', 'romantic suspense', 'non-fiction', 'comedy manga', 'sci-fi romance', 'Christian', 'sci-fi', 'fantasy', 'memoir', 'mystery', 'magical realism', 'historical fiction', 'thriller' ],
+                labels: ['contemporary romance', 'historical romance', 'fantasy romance', 'other fiction', 'romantic suspense', 'non-fiction', 'comedy manga', 'sci-fi romance', 'Christian', 'sci-fi', 'fantasy', 'memoir', 'mystery', 'magical realism', 'historical fiction', 'thriller'],
                 values: [38, 25, 20, 11, 10, 9, 8, 7, 7, 5, 5, 4, 3, 3, 3, 2]
+            },
+            '2023': {
+                labels: ['contemporary romance', 'historical romance', 'non-fiction','memoir', 'Christian', 'fantasy romance', 'romantic suspense', 'paranormal romance', 'sci-fi romance', 'fantasy', 'thriller', 'sci-fi', 'historical fiction', 'horror'],
+                values: [32, 28, 14, 10, 10, 9, 6, 6, 5, 5, 4, 4, 2, 1]
             }
         },
         type: {
@@ -63,6 +71,10 @@ const dashboard = {
             '2022': {
                 labels: ['fiction', 'non-fiction'],
                 values: [140, 20]
+            },
+            '2023': {
+                labels: ['fiction', 'non-fiction'],
+                values: [100, 34]
             }
         },
         age: {
@@ -81,6 +93,10 @@ const dashboard = {
             '2022': {
                 labels: ['adult', 'young adult'],
                 values: [146, 14]
+            },
+            '2023': {
+                labels: ['adult', 'young adult'],
+                values: [120, 14]
             }
         },
         gender: {
@@ -99,6 +115,10 @@ const dashboard = {
             '2022': {
                 labels: ['female', 'male', 'multiple', 'unknown'],
                 values: [128, 19, 11, 2]
+            },
+            '2023': {
+                labels: ['female', 'male', 'multiple', 'non-binary'],
+                values: [114, 15, 4, 1]
             }
         },
         poc: {
@@ -118,63 +138,91 @@ const dashboard = {
                 labels: ['yes', 'no', 'N/A'],
                 values: [36, 69, 55],
             }
+            ,
+            '2023': {
+                labels: ['yes', 'no', 'N/A'],
+                values: [27, 62, 55],
+            }
         },
         format: {
             '2022': {
-                labels: ['ebook', 'audiobook', 'e-graphic novel', 'print'],
-                values: [132, 16, 9, 3],
+                labels: ['ebook', 'audiobook', 'print'],
+                values: [141, 16, 3],
+            },
+            '2023': {
+                labels: ['ebook', 'audiobook', 'print'],
+                values: [110, 19, 5],
             }
         }
     },
     // set event listeners for all the year toggles
     addEventListeners: (section) => {
-        ['2019', '2020', '2021', '2022'].forEach(year => {
-            document.getElementById(`btn-${section}-${year}`).addEventListener('click', function () {
-                const el = document.getElementById(section);
-                while(el.firstChild && el.removeChild(el.firstChild));
-                switch (section) {
-                    case 'months':
-                        dashboard.buildBarChart(year);
-                        break;
-                    case 'genres':
-                        dashboard.buildHorzBarChart(year);
-                        break;
-                    case 'type':
-                        dashboard.buildPieChart('type', year);
-                        break;
-                    case 'age':
-                        dashboard.buildPieChart('age', year);
-                        break;
-                    case 'gender':
-                        dashboard.buildDonutChart('gender', year);
-                        break;
-                    case 'poc':
-                        dashboard.buildDonutChart('poc', year);
-                        break;
-                    default:
-                        break;
-                }
-                if(!this.classList.contains('active')) {
-                    this.classList.add('active');
-                }
-                if (year == '2022') {
-                    document.getElementById(`btn-${section}-2019`).classList.remove('active');
-                    document.getElementById(`btn-${section}-2020`).classList.remove('active');
-                    document.getElementById(`btn-${section}-2021`).classList.remove('active');
-                } else if (year == '2021') {
-                    document.getElementById(`btn-${section}-2019`).classList.remove('active');
-                    document.getElementById(`btn-${section}-2020`).classList.remove('active');
-                    document.getElementById(`btn-${section}-2022`).classList.remove('active');
-                } else if (year == '2020') {
-                    document.getElementById(`btn-${section}-2019`).classList.remove('active');
-                    document.getElementById(`btn-${section}-2021`).classList.remove('active');
-                    document.getElementById(`btn-${section}-2022`).classList.remove('active');
-                } else if (year == '2019') {
-                    document.getElementById(`btn-${section}-2020`).classList.remove('active');
-                    document.getElementById(`btn-${section}-2021`).classList.remove('active');
-                    document.getElementById(`btn-${section}-2022`).classList.remove('active');
-                }
-            });
+        ['2019', '2020', '2021', '2022', '2023'].forEach((year, i) => {
+            if ( !(section == 'format' && i < 3) ) {
+                document.getElementById(`btn-${section}-${year}`).addEventListener('click', function () {
+                    const el = document.getElementById(section);
+                    while(el.firstChild && el.removeChild(el.firstChild));
+                    switch (section) {
+                        case 'months':
+                            dashboard.buildBarChart(year);
+                            break;
+                        case 'genres':
+                            dashboard.buildHorzBarChart(year);
+                            break;
+                        case 'type':
+                            dashboard.buildPieChart('type', year);
+                            break;
+                        case 'age':
+                            dashboard.buildPieChart('age', year);
+                            break;
+                        case 'gender':
+                            dashboard.buildDonutChart('gender', year);
+                            break;
+                        case 'poc':
+                            dashboard.buildDonutChart('poc', year);
+                            break;
+                        case 'format':
+                            dashboard.buildDonutChart('format', year);
+                            break;
+                        default:
+                            break;
+                    }
+                    if(!this.classList.contains('active')) {
+                        this.classList.add('active');
+                    }
+    
+                    if (year == '2023') {
+                        if (section !== 'format') {
+                            document.getElementById(`btn-${section}-2019`).classList.remove('active');
+                            document.getElementById(`btn-${section}-2020`).classList.remove('active');
+                            document.getElementById(`btn-${section}-2021`).classList.remove('active');
+                        }
+                        document.getElementById(`btn-${section}-2022`).classList.remove('active');
+                    } else if (year == '2022') {
+                        if (section !== 'format') {
+                            document.getElementById(`btn-${section}-2019`).classList.remove('active');
+                            document.getElementById(`btn-${section}-2020`).classList.remove('active');
+                            document.getElementById(`btn-${section}-2021`).classList.remove('active');
+                        }
+                        document.getElementById(`btn-${section}-2023`).classList.remove('active');
+                    } else if (year == '2021' && section !== 'format') {
+                        document.getElementById(`btn-${section}-2019`).classList.remove('active');
+                        document.getElementById(`btn-${section}-2020`).classList.remove('active');
+                        document.getElementById(`btn-${section}-2022`).classList.remove('active');
+                        document.getElementById(`btn-${section}-2023`).classList.remove('active');
+                    } else if (year == '2020' && section !== 'format') {
+                        document.getElementById(`btn-${section}-2019`).classList.remove('active');
+                        document.getElementById(`btn-${section}-2021`).classList.remove('active');
+                        document.getElementById(`btn-${section}-2022`).classList.remove('active');
+                        document.getElementById(`btn-${section}-2023`).classList.remove('active');
+                    } else if (year == '2019' && section !== 'format') {
+                        document.getElementById(`btn-${section}-2020`).classList.remove('active');
+                        document.getElementById(`btn-${section}-2021`).classList.remove('active');
+                        document.getElementById(`btn-${section}-2022`).classList.remove('active');
+                        document.getElementById(`btn-${section}-2023`).classList.remove('active');
+                    }
+                });
+            }
         })
     },
     // build bar chart for total read
@@ -186,9 +234,8 @@ const dashboard = {
             values: 'books read',
             roughness: 2,
             strokeWidth: 2,
+            color: 'skyblue',
             highlight: 'darkblue',
-            width: 800,
-            height: 600,
             legend: false,
             axisFontSize: '2rem',
             tooltipFontSize: '2.5rem',
@@ -206,8 +253,6 @@ const dashboard = {
             strokeWidth: 2,
             color: '#000080',
             highlight: 'lightblue',
-            width: 800,
-            height: 600,
             legend: false,
             axisFontSize: '2rem',
             tooltipFontSize: '2.5rem',
@@ -221,8 +266,6 @@ const dashboard = {
             data: dashboard.data.genres[year],
             roughness: 2,
             strokeWidth: 2,
-            width: 800,
-            height: 600,
             axisFontSize: '2rem',
             tooltipFontSize: '2.5rem',
             legend: false,
@@ -242,8 +285,6 @@ const dashboard = {
             strokeWidth: 2,
             tooltipFontSize: '2rem',
             colors: type == 'type' ? ['#FF7F50', '#45b3e0'] : ['#8700DB', '#C700C7'],
-            width: 550,
-            height: 550,
             legend: false,
             margin: { top: 0, right: 20, bottom: 20, left: 20 }
         });
@@ -256,15 +297,17 @@ const dashboard = {
         if (type == 'gender') {
             colors = ['green', 'darkblue', '#ff7f50', '#8e8e8e'];
 
-            if (year == '2021') {
-                document.getElementById('third-gender').innerText = 'non-binary';
-                document.getElementById('unknown-gender').innerText = '';
+            if (year == '2019') {
+                colors = ['green', 'darkblue']
+            } else if (year == '2020') {
+                colors = ['green', 'darkblue', 'purple']
+            } else if (year == '2021') {
+                ['green', 'darkblue', '#ff7f50']
             } else if (year == '2022') {
-                document.getElementById('third-gender').innerText = 'various';
-                document.getElementById('unknown-gender').innerHTML = ', or <span style="color:#8e8e8e">unknown</span>'
-            } else if (year == '2020' || year == '2019') {
-                document.getElementById('third-gender').innerText = 'various';
-                document.getElementById('unknown-gender').innerText = '';
+                colors = ['green', 'darkblue', 'purple', '#8e8e8e']
+            } else {
+                // year == '2023'
+                colors = ['green', 'darkblue', 'purple', '#ff7f50']
             }
 
             selector = '#gender';
@@ -274,7 +317,7 @@ const dashboard = {
 
             selector = '#poc';
         } else if (type == 'format') {
-            colors = ['#87CEEB', '#66c2a5', 'violet', '#717374'];
+            colors = ['#87CEEB', '#66c2a5', 'violet'];
 
             selector = '#format';
         }
@@ -286,8 +329,6 @@ const dashboard = {
             fillStyle: type == 'poc' ? 'cross-hatch' : 'solid',
             fillWeight: 1,
             roughness: 1,
-            width: 550,
-            height: 550,
             colors: colors,
             highlight: '#000',
             legend: false,
@@ -297,14 +338,14 @@ const dashboard = {
 }
 
 // create initial charts
-const sections = ['months', 'genres', 'type', 'age', 'gender', 'poc'];
+const sections = ['months', 'genres', 'type', 'age', 'gender', 'poc', 'format'];
 sections.forEach(el => dashboard.addEventListeners(el));
 dashboard.buildTotal('overall');
-dashboard.buildBarChart('2022');
-dashboard.buildHorzBarChart('2022');
-dashboard.buildPieChart('type', '2022');
-dashboard.buildPieChart('age', '2022');
-dashboard.buildDonutChart('gender', '2022');
-dashboard.buildDonutChart('poc', '2022');
-dashboard.buildDonutChart('format', '2022');
+dashboard.buildBarChart('2023');
+dashboard.buildHorzBarChart('2023');
+dashboard.buildPieChart('type', '2023');
+dashboard.buildPieChart('age', '2023');
+dashboard.buildDonutChart('gender', '2023');
+dashboard.buildDonutChart('poc', '2023');
+dashboard.buildDonutChart('format', '2023');
 dashboard.buildTotal('pubyear');
