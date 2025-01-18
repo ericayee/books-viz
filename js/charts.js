@@ -1,5 +1,6 @@
 // vars
 const fontFam = 'Capriola';
+const tooltipSize = '1.5rem';
 
 // dashboard
 const dashboard = {
@@ -281,8 +282,8 @@ const dashboard = {
             color: 'skyblue',
             highlight: 'darkblue',
             legend: false,
-            axisFontSize: '1.5rem',
-            tooltipFontSize: '1.5rem',
+            axisFontSize: tooltipSize,
+            tooltipFontSize: tooltipSize,
             margin: { top: 20, right: 20, bottom: 70, left: type == 'overall' ? 40 : 70 },
             yLabel: type == 'overall' ? '' : '%',
             font: fontFam
@@ -313,8 +314,8 @@ const dashboard = {
             data: dashboard.data.genres[year],
             roughness: 2,
             strokeWidth: 2,
-            axisFontSize: '1.5rem',
-            tooltipFontSize: '1.5rem',
+            axisFontSize: tooltipSize,
+            tooltipFontSize: tooltipSize,
             legend: false,
             color: 'purple',
             highlight: '#4d004d',
@@ -331,7 +332,7 @@ const dashboard = {
             fillWeight: 1,
             roughness: 1,
             strokeWidth: 2,
-            tooltipFontSize: '1.5rem',
+            tooltipFontSize: tooltipSize,
             colors: type == 'type' ? ['#FF7F50', '#45b3e0', '#8b008b'] : ['#8700DB', '#C700C7', '#45b3e0'],
             legend: false,
             margin: { top: 0, right: 20, bottom: 20, left: 20 },
