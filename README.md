@@ -3,4 +3,4 @@ An ongoing project to better understand my reading habits, visualized with [roug
 
 Live project [here](https://ericayee.com/books-viz/)
 
-Updated: January 2023 with 2022 data
+Updated: January 2025 with 2024 data
