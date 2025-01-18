@@ -1,14 +1,17 @@
+// vars
+const fontFam = 'Capriola';
+
 // dashboard
 const dashboard = {
     data: {
         total: {
             overall: {
-                labels: ['2019', '2020', '2021', '2022', '2023'],
-                values: [55, 100, 102, 160, 134]
+                labels: ['2019', '2020', '2021', '2022', '2023', '2024'],
+                values: [55, 100, 102, 160, 134, 142]
             },
             pubyear: {
-                labels: ['2019', '2020', '2021', '2022', '2023'],
-                values: [14, 34, 35, 65, 57]
+                labels: ['2019', '2020', '2021', '2022', '2023', '2024'],
+                values: [25, 34, 34, 41, 43, 44] // percents
             }
         },
         months: {
@@ -31,6 +34,10 @@ const dashboard = {
             '2023': {
                 labels: ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sept', 'oct', 'nov', 'dec'],
                 values: [8, 8, 11, 11, 8, 13, 13, 17, 11, 13, 9, 11]
+            },
+            '2024': {
+                labels: ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sept', 'oct', 'nov', 'dec'],
+                values: [13, 16, 11, 15, 10, 9, 13, 15, 12, 6, 10, 12]
             }
         },
         genres: {
@@ -53,6 +60,10 @@ const dashboard = {
             '2023': {
                 labels: ['contemporary romance', 'historical romance', 'non-fiction','memoir', 'Christian', 'fantasy romance', 'romantic suspense', 'paranormal romance', 'sci-fi romance', 'fantasy', 'thriller', 'sci-fi', 'historical fiction', 'horror'],
                 values: [32, 28, 14, 10, 10, 9, 6, 6, 5, 5, 4, 4, 2, 1]
+            },
+            '2024': {
+                labels: ['contemporary romance', 'literary fiction', 'historical romance', 'other non-fiction', 'sci-fi', 'fantasy', 'Christian non-fiction', 'memoir', 'fantasy romance', 'history', 'paranormal romance', 'mystery', 'biography', 'sci-fi romance', 'poetry'],
+                values: [33, 18, 18, 14, 11, 9, 9, 8, 8, 4, 3, 3, 2, 1, 1]
             }
         },
         type: {
@@ -75,6 +86,10 @@ const dashboard = {
             '2023': {
                 labels: ['fiction', 'non-fiction'],
                 values: [100, 34]
+            },
+            '2024': {
+                labels: ['fiction', 'non-fiction', 'poetry'],
+                values: [104, 37, 1]
             }
         },
         age: {
@@ -97,6 +112,10 @@ const dashboard = {
             '2023': {
                 labels: ['adult', 'young adult'],
                 values: [120, 14]
+            },
+            '2024': {
+                labels: ['adult', 'young adult', 'middle grade'],
+                values: [123, 15, 4]
             }
         },
         gender: {
@@ -119,6 +138,10 @@ const dashboard = {
             '2023': {
                 labels: ['female', 'male', 'multiple', 'non-binary'],
                 values: [114, 15, 4, 1]
+            },
+            '2024': {
+                labels: ['female', 'male', 'multiple', 'non-binary'],
+                values: [109, 28, 2, 3]
             }
         },
         poc: {
@@ -142,6 +165,10 @@ const dashboard = {
             '2023': {
                 labels: ['yes', 'no', 'N/A'],
                 values: [27, 62, 55],
+            },
+            '2024': {
+                labels: ['yes', 'no', 'N/A'],
+                values: [38, 55, 49],
             }
         },
         format: {
@@ -152,13 +179,17 @@ const dashboard = {
             '2023': {
                 labels: ['ebook', 'audiobook', 'print'],
                 values: [110, 19, 5],
+            },
+            '2024': {
+                labels: ['ebook', 'audiobook', 'print'],
+                values: [109, 10, 23],
             }
         }
     },
     // set event listeners for all the year toggles
     addEventListeners: (section) => {
-        ['2019', '2020', '2021', '2022', '2023'].forEach((year, i) => {
-            if ( !(section == 'format' && i < 3) ) {
+        ['2019', '2020', '2021', '2022', '2023', '2024'].forEach((year, i) => {
+            if ( !(section == 'format' && i < 4) ) {
                 document.getElementById(`btn-${section}-${year}`).addEventListener('click', function () {
                     const el = document.getElementById(section);
                     while(el.firstChild && el.removeChild(el.firstChild));
@@ -191,13 +222,22 @@ const dashboard = {
                         this.classList.add('active');
                     }
     
-                    if (year == '2023') {
+                    if (year == '2024') {
                         if (section !== 'format') {
                             document.getElementById(`btn-${section}-2019`).classList.remove('active');
                             document.getElementById(`btn-${section}-2020`).classList.remove('active');
                             document.getElementById(`btn-${section}-2021`).classList.remove('active');
                         }
                         document.getElementById(`btn-${section}-2022`).classList.remove('active');
+                        document.getElementById(`btn-${section}-2023`).classList.remove('active');
+                    } else if (year == '2023') {
+                        if (section !== 'format') {
+                            document.getElementById(`btn-${section}-2019`).classList.remove('active');
+                            document.getElementById(`btn-${section}-2020`).classList.remove('active');
+                            document.getElementById(`btn-${section}-2021`).classList.remove('active');
+                        }
+                        document.getElementById(`btn-${section}-2022`).classList.remove('active');
+                        document.getElementById(`btn-${section}-2024`).classList.remove('active');
                     } else if (year == '2022') {
                         if (section !== 'format') {
                             document.getElementById(`btn-${section}-2019`).classList.remove('active');
@@ -205,21 +245,25 @@ const dashboard = {
                             document.getElementById(`btn-${section}-2021`).classList.remove('active');
                         }
                         document.getElementById(`btn-${section}-2023`).classList.remove('active');
+                        document.getElementById(`btn-${section}-2024`).classList.remove('active');
                     } else if (year == '2021' && section !== 'format') {
                         document.getElementById(`btn-${section}-2019`).classList.remove('active');
                         document.getElementById(`btn-${section}-2020`).classList.remove('active');
                         document.getElementById(`btn-${section}-2022`).classList.remove('active');
                         document.getElementById(`btn-${section}-2023`).classList.remove('active');
+                        document.getElementById(`btn-${section}-2024`).classList.remove('active');
                     } else if (year == '2020' && section !== 'format') {
                         document.getElementById(`btn-${section}-2019`).classList.remove('active');
                         document.getElementById(`btn-${section}-2021`).classList.remove('active');
                         document.getElementById(`btn-${section}-2022`).classList.remove('active');
                         document.getElementById(`btn-${section}-2023`).classList.remove('active');
+                        document.getElementById(`btn-${section}-2024`).classList.remove('active');
                     } else if (year == '2019' && section !== 'format') {
                         document.getElementById(`btn-${section}-2020`).classList.remove('active');
                         document.getElementById(`btn-${section}-2021`).classList.remove('active');
                         document.getElementById(`btn-${section}-2022`).classList.remove('active');
                         document.getElementById(`btn-${section}-2023`).classList.remove('active');
+                        document.getElementById(`btn-${section}-2024`).classList.remove('active');
                     }
                 });
             }
@@ -237,9 +281,11 @@ const dashboard = {
             color: 'skyblue',
             highlight: 'darkblue',
             legend: false,
-            axisFontSize: '2rem',
-            tooltipFontSize: '2.5rem',
-            margin: { top: 20, right: 20, bottom: 70, left: 50 }
+            axisFontSize: '1.5rem',
+            tooltipFontSize: '1.5rem',
+            margin: { top: 20, right: 20, bottom: 70, left: type == 'overall' ? 40 : 70 },
+            yLabel: type == 'overall' ? '' : '%',
+            font: fontFam
         });
     },
     // build bar chart for months
@@ -254,9 +300,10 @@ const dashboard = {
             color: '#000080',
             highlight: 'lightblue',
             legend: false,
-            axisFontSize: '2rem',
-            tooltipFontSize: '2.5rem',
-            margin: { top: 20, right: 20, bottom: 60, left: 50 }
+            axisFontSize: '1.5rem',
+            tooltipFontSize: '1.5rem',
+            margin: { top: 20, right: 20, bottom: 60, left: 50 },
+            font: fontFam
         });
     },
     // build hbar chart for genres
@@ -266,12 +313,13 @@ const dashboard = {
             data: dashboard.data.genres[year],
             roughness: 2,
             strokeWidth: 2,
-            axisFontSize: '2rem',
-            tooltipFontSize: '2.5rem',
+            axisFontSize: '1.5rem',
+            tooltipFontSize: '1.5rem',
             legend: false,
             color: 'purple',
             highlight: '#4d004d',
-            margin: { top: 20, right: 20, bottom: 70, left: 300 }
+            margin: { top: 20, right: 20, bottom: 70, left: 300 },
+            font: fontFam
         });
     },
     // build pie chart for fiction or age
@@ -283,10 +331,11 @@ const dashboard = {
             fillWeight: 1,
             roughness: 1,
             strokeWidth: 2,
-            tooltipFontSize: '2rem',
-            colors: type == 'type' ? ['#FF7F50', '#45b3e0'] : ['#8700DB', '#C700C7'],
+            tooltipFontSize: '1.5rem',
+            colors: type == 'type' ? ['#FF7F50', '#45b3e0', '#8b008b'] : ['#8700DB', '#C700C7', '#45b3e0'],
             legend: false,
-            margin: { top: 0, right: 20, bottom: 20, left: 20 }
+            margin: { top: 0, right: 20, bottom: 20, left: 20 },
+            font: fontFam
         });
 
     },
@@ -306,7 +355,7 @@ const dashboard = {
             } else if (year == '2022') {
                 colors = ['green', 'darkblue', 'purple', '#8e8e8e']
             } else {
-                // year == '2023'
+                // year == '2023' or year == '2024'
                 colors = ['green', 'darkblue', 'purple', '#ff7f50']
             }
 
@@ -318,21 +367,21 @@ const dashboard = {
             selector = '#poc';
         } else if (type == 'format') {
             colors = ['#87CEEB', '#66c2a5', 'violet'];
-
             selector = '#format';
         }
 
         new roughViz.Donut({
             element: selector,
             data: dashboard.data[type][year],
-            tooltipFontSize: '2rem',
+            tooltipFontSize: '1.5rem',
             fillStyle: type == 'poc' ? 'cross-hatch' : 'solid',
             fillWeight: 1,
             roughness: 1,
             colors: colors,
             highlight: '#000',
             legend: false,
-            margin: { top: 0, right: 20, bottom: 20, left: 20 }
+            margin: { top: 0, right: 20, bottom: 20, left: 20 },
+            font: fontFam
         });
     }
 }
@@ -341,11 +390,11 @@ const dashboard = {
 const sections = ['months', 'genres', 'type', 'age', 'gender', 'poc', 'format'];
 sections.forEach(el => dashboard.addEventListeners(el));
 dashboard.buildTotal('overall');
-dashboard.buildBarChart('2023');
-dashboard.buildHorzBarChart('2023');
-dashboard.buildPieChart('type', '2023');
-dashboard.buildPieChart('age', '2023');
-dashboard.buildDonutChart('gender', '2023');
-dashboard.buildDonutChart('poc', '2023');
-dashboard.buildDonutChart('format', '2023');
+dashboard.buildBarChart('2024');
+dashboard.buildHorzBarChart('2024');
+dashboard.buildPieChart('type', '2024');
+dashboard.buildPieChart('age', '2024');
+dashboard.buildDonutChart('gender', '2024');
+dashboard.buildDonutChart('poc', '2024');
+dashboard.buildDonutChart('format', '2024');
 dashboard.buildTotal('pubyear');
