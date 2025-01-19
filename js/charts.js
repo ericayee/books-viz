@@ -8,7 +8,7 @@ const dashboard = {
         total: {
             overall: {
                 labels: ['2019', '2020', '2021', '2022', '2023', '2024'],
-                values: [55, 100, 102, 160, 134, 143]
+                values: [55, 100, 102, 160, 134, 144]
             },
             pubyear: {
                 labels: ['2019', '2020', '2021', '2022', '2023', '2024'],
@@ -38,7 +38,7 @@ const dashboard = {
             },
             '2024': {
                 labels: ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sept', 'oct', 'nov', 'dec'],
-                values: [13, 16, 11, 15, 10, 9, 13, 15, 12, 7, 10, 12]
+                values: [13, 16, 12, 15, 10, 9, 13, 15, 12, 7, 10, 12]
             }
         },
         genres: {
@@ -64,7 +64,7 @@ const dashboard = {
             },
             '2024': {
                 labels: ['contemporary romance', 'literary fiction', 'historical romance', 'other non-fiction', 'sci-fi', 'fantasy', 'Christian non-fiction', 'memoir', 'fantasy romance', 'history', 'paranormal romance', 'mystery', 'biography', 'sci-fi romance', 'poetry'],
-                values: [33, 18, 18, 14, 12, 9, 9, 8, 8, 4, 3, 3, 2, 1, 1]
+                values: [33, 18, 18, 15, 12, 9, 9, 8, 8, 4, 3, 3, 2, 1, 1]
             }
         },
         type: {
@@ -90,7 +90,7 @@ const dashboard = {
             },
             '2024': {
                 labels: ['fiction', 'non-fiction', 'poetry'],
-                values: [105, 37, 1]
+                values: [105, 38, 1]
             }
         },
         age: {
@@ -116,7 +116,7 @@ const dashboard = {
             },
             '2024': {
                 labels: ['adult', 'young adult', 'middle grade'],
-                values: [124, 15, 4]
+                values: [125, 15, 4]
             }
         },
         gender: {
@@ -142,7 +142,7 @@ const dashboard = {
             },
             '2024': {
                 labels: ['female', 'male', 'multiple', 'non-binary'],
-                values: [110, 28, 2, 3]
+                values: [110, 29, 2, 3]
             }
         },
         poc: {
@@ -169,7 +169,7 @@ const dashboard = {
             },
             '2024': {
                 labels: ['yes', 'no', 'N/A'],
-                values: [39, 55, 49],
+                values: [39, 55, 50],
             }
         },
         format: {
@@ -183,7 +183,7 @@ const dashboard = {
             },
             '2024': {
                 labels: ['ebook', 'audiobook', 'print'],
-                values: [110, 10, 23],
+                values: [111, 10, 23],
             }
         }
     },
