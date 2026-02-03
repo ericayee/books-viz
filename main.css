@@ -144,8 +144,8 @@ p {
     .btn-left, .btn-right, .btn-middle {
         background: darkslategray;
         color: white;
-        padding: 1rem 1.5rem;
-        font-size: 2.5rem;
+        padding: 1.5rem 1.25rem;
+        font-size: 2.75rem;
         opacity: 0.6;
     }
     
